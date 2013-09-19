@@ -1,0 +1,29 @@
+#io {
+    color: #FF5600;
+}
+
+#posts {
+    margin-top: 15px;
+}
+
+.heart {
+    width: 10px;
+    margin-top: -2px;
+}
+
+.likes {
+    margin: -14px 0px 0px 7px;
+    font-size: 0.8em;
+}
+
+.like-button, .comment-button {
+    border-radius: 4px;
+}
+
+.like-button {
+    margin-right: 5px;
+}
+
+.buttons {
+    margin: -15px 0px 0px 5px;
+}

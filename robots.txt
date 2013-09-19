@@ -1,0 +1,33 @@
+var app = angular.module('Datagram', []);
+
+app.controller('PostCtrl', function($scope) {
+    $scope.entrys = [{
+        source: '192.168.1.1',
+        destination: '192.168.1.1'
+    }, {
+        source: '192.168.1.1',
+        destination: '192.168.1.1'
+    }, {
+        source: '192.168.1.1',
+        destination: '192.168.1.1'
+    }, {
+        source: '192.168.1.1',
+        destination: '192.168.1.1'
+    }, {
+        source: '192.168.1.1',
+        destination: '192.168.1.1'
+    }, {
+        source: '192.168.1.1',
+        destination: '192.168.1.1'
+    }];
+});
+
+app.directive('post', function() {
+    return {
+        restrict: 'E',
+        transclude: true,
+        replace: true,
+        scope: {},
+        templateUrl: "post-partial.html",
+    }
+});
