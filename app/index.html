@@ -16,10 +16,6 @@
             <link rel="stylesheet" href="css/normalize.css" />
             <link rel="stylesheet" href="css/foundation.css" />
             <link rel="stylesheet" href="css/app.css" />
-            <script src="lib/custom.modernizr.js"></script>
-            <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-            <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-            <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
         </head>
         
         <body ng-app="myApp">
@@ -54,13 +50,26 @@
                     </section>
                 </nav>
             </div>
-            
             <!--create the main feed of posts via a directive -->
             <section id="posts" ng-controller="PostCtrl">
                 <post ng-repeat="post in posts">
-                    <h4>{{post.source}}</h4>
-                    <p>{{post.destination}}</p>
+                    <h4>{{post.title}}</h4>
+                    <p>{{post.content}}</p>
                 </post>
+                <div class="row">
+                    <input type="button" class="button small-12 large-4" value="load more"
+                    ng-click="getPosts()" />
+                </div>
+            </section>
+            <section ng-controller="NewPostCtrl">
+                <div class="row">
+                    <input type="text" class="small-12 large-4 columns" placeholder="Title"
+                    ng-model="title" />
+                    <input type="text" class="small-12 large-4 columns" placeholder="Content"
+                    ng-model="content" />
+                    <input type="button" class="button small-12 large-4" value="create post"
+                    ng-click="newPost()" />
+                </div>
             </section>
             <!--Angular Files-->
             <script src="lib/angular/angular.min.js"></script>
@@ -71,6 +80,7 @@
             <script src="js/services.js"></script>
             <!--Foundation Files-->
             <script src="lib/jquery.js"></script>
+            <script src="lib/custom.modernizr.js"></script>
             <script src="lib/foundation/foundation.js"></script>
             <script src="lib/foundation/foundation.alerts.js"></script>
             <script src="lib/foundation/foundation.clearing.js"></script>
@@ -89,7 +99,6 @@
             <script>
                 $(document).foundation();
             </script>
-            <script src="jquery.js"></script>
         </body>
         
         </html>

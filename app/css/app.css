@@ -2,8 +2,8 @@
     color: #FF5600;
 }
 
-.section {
-    margin-top: 15px;
+.post {
+    margin: 15px 0 0 0;
 }
 
 .heart {
@@ -11,38 +11,14 @@
     margin-top: -2px;
 }
 
-.likes {
-    margin: -14px 0px 0px 7px;
-    font-size: 0.8em;
-}
-
-.like-button, .comment-button {
-    border-radius: 4px;
-}
-
-.like-button {
-    margin-right: 5px;
-}
-
 .buttons {
-    margin: -15px 0px 0px 5px;
+    margin: -10px 0 0 0;
+}
+
+.buttons > * {
+    border-radius: 4px;
 }
 
 .comments {
     list-style-type: none;
-    margin: -5px 25px;
-}
-
-.comments > li {
-    background-color: #f2f2f2;
-}
-
-.comments > li > p {
-    padding: 5px 10px;
-    margin-bottom: 0px;
-    border-bottom: 2px solid white;
-}
-
-.comment-section {
-    display: inline;
 }

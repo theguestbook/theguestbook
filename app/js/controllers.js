@@ -2,25 +2,22 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
-  .controller('PostCtrl', ['$scope', function($scope) {
+angular.module('myApp.controllers', []).controller('PostCtrl', ['$scope', 'postalService', function($scope, postalService) {
     $scope.posts = [{
-        source: 'I like cats',
-        destination: 'Cats are fun. They really make me feel happy with myself, you know?'
-    }, {
-        source: '192.168.1.1',
-        destination: '192.168.1.1'
-    }, {
-        source: '192.168.1.1',
-        destination: '192.168.1.1'
-    }, {
-        source: '192.168.1.1',
-        destination: '192.168.1.1'
-    }, {
-        source: '192.168.1.1',
-        destination: '192.168.1.1'
-    }, {
-        source: '192.168.1.1',
-        destination: '192.168.1.1'
+        title: "Hello, World",
+        content: "rememeber folks, always use git."
     }];
-  }]);
+
+    $scope.getPosts = function() {
+        postalService.getPosts(function(posts) {
+            $scope.posts = posts;
+        });
+    };
+}]).controller('NewPostCtrl', ['$scope', 'postalService', function($scope, postalService) {
+    $scope.title = "";
+    $scope.content = "";
+
+    $scope.newPost = function() {
+        postalService.newPost($scope.title, $scope.content)
+    };
+}]);
