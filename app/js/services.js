@@ -10,21 +10,26 @@ angular.module('myApp.services', []).factory('postalService', ['$http', function
 
     service.getPosts = function(callback) {
         $http.get("/getPosts").success(function(res) {
-            if (res.posts == undefined) console.log("No posts on database");
+            if (res == undefined) console.log("No posts on database");
             else {
-                console.log(res.posts.length + "posts gathered.");
-                callback(res.posts);
+                console.log(res.length + "posts gathered.");
+                callback(res);
             }
         }).error(function(err, status) {
             console.log("Error getting posts: " + status + " " + err);
         });
     };
 
-    service.newPost = function(title, content) {
-        $http.post("/newPost").success(function(res) {
-            console.log("Success! Post written")
+    service.newPost = function(title, content, callback) {
+        var newPostJSON = {};
+        newPostJSON.title = title;
+        newPostJSON.content = content;
+        $http.post("/newPost", JSON.stringify(newPostJSON)).success(function(res) {
+            console.log("Success! Post written");
+            callback(null);
         }).error(function(err, status) {
-            console.log("Error creating post: " + status + " " + err);
+            console.log(status + ": " + err);
+            callback(err);
         });
     };
 
