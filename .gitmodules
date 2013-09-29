@@ -1,0 +1,3 @@
+[submodule "scripts/server"]
+	path = scripts/server
+	url = git://github.com/thebradbain/nodejs_boiler.git
