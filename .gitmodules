@@ -1,3 +1,3 @@
-[submodule "scripts/server"]
-	path = scripts/server
-	url = git://github.com/thebradbain/nodejs_boiler.git
+[submodule "scripts/node-server"]
+	path = scripts/node-server
+	url = git://github.com/theguestbook/theguestbook-server.git
