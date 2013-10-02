@@ -1,0 +1,12 @@
+<!--Create the main feed of posts via a directive-->
+<section id="posts" ng-controller="PostCtrl">
+    <post ng-repeat="post in posts">
+        <h4>{{post.title}}</h4>
+        <p>{{post.content}}</p>
+    </post>
+    <div class="row">
+        <div class="small-12 large-4 small-centered columns">
+            <div class="greedy button" ng-click="getPosts()">Load More</div>
+        </div>
+    </div>
+</section>

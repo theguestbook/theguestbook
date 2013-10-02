@@ -13,11 +13,4 @@ angular.module('myApp.controllers', []).controller('PostCtrl', ['$scope', 'posta
             $scope.posts = posts;
         });
     };
-}]).controller('NewPostCtrl', ['$scope', 'postalService', function($scope, postalService) {
-    $scope.title = "";
-    $scope.content = "";
-
-    $scope.newPost = function() {
-        postalService.newPost($scope.title, $scope.content)
-    };
 }]);

@@ -15,10 +15,10 @@
             you may add app.css to use for your overrides if you like. -->
             <link rel="stylesheet" href="css/normalize.css" />
             <link rel="stylesheet" href="css/foundation.css" />
-            <link rel="stylesheet" href="css/app.css" />
         </head>
         
         <body ng-app="myApp">
+            <!--Navigation-->
             <div class="fixed">
                 <nav class="top-bar">
                     <ul class="title-area">
@@ -38,39 +38,21 @@
                                 <a href="#">home</a>
                             </li>
                             <li>
-                                <a href="explore.html">explore</a>
+                                <a href="#/compose">compose</a>
                             </li>
                             <li>
                                 <a href="about.html">about</a>
-                            </li>
-                            <li>
-                                <a href="contact.html">contact</a>
                             </li>
                         </ul>
                     </section>
                 </nav>
             </div>
-            <!--create the main feed of posts via a directive -->
-            <section id="posts" ng-controller="PostCtrl">
-                <post ng-repeat="post in posts">
-                    <h4>{{post.title}}</h4>
-                    <p>{{post.content}}</p>
-                </post>
-                <div class="row">
-                    <input type="button" class="button small-12 large-4" value="load more"
-                    ng-click="getPosts()" />
-                </div>
-            </section>
-            <section ng-controller="NewPostCtrl">
-                <div class="row">
-                    <input type="text" class="small-12 large-4 columns" placeholder="Title"
-                    ng-model="title" />
-                    <input type="text" class="small-12 large-4 columns" placeholder="Content"
-                    ng-model="content" />
-                    <input type="button" class="button small-12 large-4" value="create post"
-                    ng-click="newPost()" />
-                </div>
-            </section>
+            
+            <!--Pages are dynamically loaded into ng-view via Angular-->
+            <div id="container">
+                <div ng-view></div>
+            </div>
+
             <!--Angular Files-->
             <script src="lib/angular/angular.min.js"></script>
             <script src="js/app.js"></script>
@@ -99,6 +81,7 @@
             <script>
                 $(document).foundation();
             </script>
+            <link rel="stylesheet" href="css/app.css" />
         </body>
         
         </html>

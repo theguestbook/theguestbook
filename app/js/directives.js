@@ -15,6 +15,25 @@ angular.module('myApp.directives', [])
         transclude: true,
         replace: true,
         scope: {},
-        templateUrl: "partials/post-partial.html",
+        templateUrl: "partials/components/post-partial.html",
     };
- }]);
+ }])
+.directive('compose', ['postalService', function(postalService) {
+    return {
+        restrict: 'E',
+        transclude: false,
+        replace: true,
+        scope: {},
+        templateUrl: "partials/components/compose-partial.html",
+        controller: function($scope, postalService) {
+            $scope.title = "";
+            $scope.content = "";
+
+            $scope.newPost = function() {
+                postalService.newPost($scope.title, $scope.content, function(err) {
+                    if(err) console.log(err);
+                });
+            };
+        }
+    };
+}]);
