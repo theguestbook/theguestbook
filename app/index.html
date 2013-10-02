@@ -10,9 +10,8 @@
         <head>
             <meta charset="utf-8" />
             <meta name="viewport" content="width=device-width" />
-            <title>Datagram</title>
-            <!-- If you are using CSS version, only link these 2 files,
-            you may add app.css to use for your overrides if you like. -->
+            <title>TheGuestbook</title>
+            <!-- Foundation Library CSS -->
             <link rel="stylesheet" href="css/normalize.css" />
             <link rel="stylesheet" href="css/foundation.css" />
         </head>
@@ -53,6 +52,7 @@
                 <div ng-view></div>
             </div>
 
+            <script src="lib/jquery.js"></script>
             <!--Angular Files-->
             <script src="lib/angular/angular.min.js"></script>
             <script src="js/app.js"></script>
@@ -61,7 +61,6 @@
             <script src="js/filters.js"></script>
             <script src="js/services.js"></script>
             <!--Foundation Files-->
-            <script src="lib/jquery.js"></script>
             <script src="lib/custom.modernizr.js"></script>
             <script src="lib/foundation/foundation.js"></script>
             <script src="lib/foundation/foundation.alerts.js"></script>
@@ -78,8 +77,11 @@
             <script src="lib/foundation/foundation.tooltips.js"></script>
             <script src="lib/foundation/foundation.topbar.js"></script>
             <script src="lib/foundation/foundation.interchange.js"></script>
+            
+            <!--Initialization-->
             <script>
                 $(document).foundation();
+                console.log("Dependecies loaded");
             </script>
             <link rel="stylesheet" href="css/app.css" />
         </body>
