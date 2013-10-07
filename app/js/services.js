@@ -8,15 +8,19 @@
 angular.module('myApp.services', []).factory('postalService', ['$http', function($http) {
     var service = {};
 
-    service.getPosts = function(callback) {
-        $http.get("/getPosts").success(function(res) {
-            if (res == undefined) console.log("No posts on database");
+    service.getPosts = function(amount, start, callback) {
+        $http.post("/getPosts", {amount: amount, start: start}).success(function(res) {
+            if (res === undefined) {
+                console.log("No such posts exist on database.");
+                callback("No such posts exist on database"); //treat this as an error
+            }
             else {
-                console.log(res.length + "posts gathered.");
-                callback(res);
+                console.log(res.length + " posts gathered.");
+                callback(null, res); //no error! 
             }
         }).error(function(err, status) {
             console.log("Error getting posts: " + status + " " + err);
+            callback(err); //there's an error.
         });
     };
 
@@ -26,7 +30,7 @@ angular.module('myApp.services', []).factory('postalService', ['$http', function
         newPostJSON.content = content;
         $http.post("/newPost", JSON.stringify(newPostJSON)).success(function(res) {
             console.log("Success! Post written");
-            callback(null);
+            callback(null, res);
         }).error(function(err, status) {
             console.log(status + ": " + err);
             callback(err);

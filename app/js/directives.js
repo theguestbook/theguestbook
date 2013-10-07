@@ -23,17 +23,22 @@ angular.module('myApp.directives', [])
         restrict: 'E',
         transclude: false,
         replace: true,
-        scope: {},
+        scope: {
+            onPost: "&" //why will it not
+        },
         templateUrl: "partials/components/compose-partial.html",
         controller: function($scope, postalService) {
             $scope.title = "";
             $scope.content = "";
-
             $scope.newPost = function() {
                 postalService.newPost($scope.title, $scope.content, function(err) {
-                    if(err);
+                    if(err) console.log(err + ":(");
+                    else {
+                        //why can I not invoke onPost()??
+                        $scope.onPost();
+                    }
                 });
             };
-        }
+        },
     };
 }]);
