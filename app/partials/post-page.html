@@ -1,7 +1,7 @@
-<div ng-controller="PostCtrl">
+<div ng-controller="PostCtrl" class="row">
+    <div class="large-6 large-centered columns">
     <!--Create the main feed of posts via a directive-->
-    <div class="row large-10 columns">
-        <section id="posts" class="large-offset-5 large-4 small-12 columns">
+        <section class="large-8 small-12 columns">
             <post ng-repeat="post in posts">
                 <h4>{{post.title}}</h4>
                 <p>{{post.content}}</p>
@@ -12,7 +12,8 @@
                 </div>
             </div>
         </section>
-        <section class="large-3 hide-for-small columns">
+
+        <section class="large-4 hide-for-small columns">
             <compose on-post="getPosts(1)"></compse>
         </section>
     </div>
