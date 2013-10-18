@@ -1,13 +1,12 @@
-
-	<div class="row">
-		<div class="post small-12 columns">
-			<div class="panel" ng-transclude></div>
-			<div class="buttons">
-				<div class="like-button button tiny secondary">
-					<img class="heart" src="img/heart.png"> Like
-				</div>
-				<div class="comment-button button tiny secondary">//comment</div>
-				<div class="comments"></div>
-			</div>
-		</div>
-	</div>
+<div class="row">
+    <div class="post small-12 columns panel">
+        <div ng-transclude class="post_content"></div>
+        <div class="buttons">
+            <a><div class="hide-button"><img src="../img/hide.png" class="hide_posts">hide</div></a>
+            <a><div class="like-button tiny secondary"><img src="../img/bump.png" class="bump">bump</div></a>
+            <a><div class="comment-button tiny secondary"><img src="../img/comment.png" class="comment">comment</div></a>
+        </div>
+        <div class="permalink"><a>direct link</a></div>
+    </div>
+    <div class="comments"></div>
+</div>

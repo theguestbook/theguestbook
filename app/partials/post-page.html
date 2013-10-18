@@ -1,20 +1,17 @@
-<div ng-controller="PostCtrl" class="row">
-    <div class="large-6 large-centered columns">
+<div ng-controller="PostCtrl" class="posts row">
     <!--Create the main feed of posts via a directive-->
-        <section class="large-8 small-12 columns">
-            <post ng-repeat="post in posts">
-                <h4>{{post.title}}</h4>
-                <p>{{post.content}}</p>
-            </post>
-            <div class="row">
-                <div class="small-12 columns">
-                    <div class="greedy button" ng-click="getPosts(20, posts.length, false)">Load More</div>
-                </div>
+    <section class="large-9 small-12 columns">
+        <post ng-repeat="post in posts">
+            <h4>{{post.title}}</h4>
+            <p>{{post.content}}</p>
+        </post>
+        <div class="row">
+            <div class="small-12 columns">
+                <div class="greedy button" ng-click="getPosts(20, posts.length, false)">Load More</div>
             </div>
-        </section>
-
-        <section class="large-4 hide-for-small columns">
-            <compose on-post="getPosts(1)"></compse>
-        </section>
-    </div>
+        </div>
+    </section>
+    <section class="large-3 hide-for-small columns">
+        <compose on-post="getPosts(1)"></compse>
+    </section>
 </div>
