@@ -1,6 +1,8 @@
 #TheGuestbook
 
-TheGuestbook is a fully functional web app built for the purpose of posting and browsing anonymous text posts in a Twitter-like feed. It was created by @thebradbain and @mmolash.
+TheGuestbook is a fully functional web app built for the purpose of sharing anonymous text posts in a Twitter-like feed. It was created with love by @thebradbain and @mmolash.
+
+
 
 ##Technology Stack
 * Angular
