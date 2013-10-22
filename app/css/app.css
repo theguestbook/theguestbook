@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* Import Foundation and other custom components */
 meta.foundation-mq-small {
   font-family: "only screen and (min-width: 768px)";
   width: 768px; }
@@ -4730,23 +4731,24 @@ a.th {
 .post {
   margin: 0 0 -1px 0; }
   .post .post_content {
-    margin: 0 0 -15px 0; }
+    margin: 0 0 0 0; }
+  .post div {
+    color: #2ba6cb;
+    display: inline;
+    margin: 0; }
   .post .buttons {
     float: right;
     margin: 0 10px 0 0;
     opacity: 0;
     transition: opacity 0.4s;
     -webkit-transition: opacity 0.4s; }
-    .post .buttons div {
-      color: #2ba6cb;
-      display: inline;
-      font-size: 0.85em;
-      margin: 0 20px 0 0; }
     .post .buttons .bump {
       height: 16px;
       position: relative;
       top: -2px;
       right: 2px; }
+    .post .buttons .comments {
+      list-style-type: none; }
     .post .buttons .comment {
       height: 14px;
       position: relative;
@@ -4763,17 +4765,38 @@ a.th {
   .post:hover .buttons {
     opacity: 1; }
 
+.compose {
+  padding-left: 0; }
+  .compose .composeBox {
+    resize: none;
+    min-height: 150px; }
+
+/* Global styles */
 .container {
   margin: 15px 0 0 0; }
 
-textarea {
-  resize: none;
-  min-height: 150px;
-  margin: 0 0 0 0; }
-
-.greedy {
-  width: 100%;
-  margin: 15px 0 15px 0; }
-
-.comments {
-  list-style-type: none; }
+.greedyButton {
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: normal;
+  margin: 0 0 1.25em;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding-top: 0.75em;
+  padding-right: 1.5em;
+  padding-bottom: 0.8125em;
+  padding-left: 1.5em;
+  font-size: 1em;
+  background-color: #2ba6cb;
+  border-color: #2284a1;
+  color: white;
+  width: 100%; }
+  .greedyButton:hover, .greedyButton:focus {
+    background-color: #2284a1; }
+  .greedyButton:hover, .greedyButton:focus {
+    color: white; }
