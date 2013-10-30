@@ -1,47 +1,26 @@
 .post
-    margin: 0 0 -1px 0
+    @include panel
+    margin: 0
     
     .post_content
         margin: 0 0 0 0
     
-    div
-        color: #2ba6cb
-        display: inline
-        margin: 0
-
-    .buttons
-        float: right
-        margin: 0 10px 0 0
-        opacity: 0
-        
-        transition: opacity 0.4s
-        -webkit-transition: opacity 0.4s
-        
-        .bump
-            height: 16px
-            position: relative
-            top: -2px
-            right: 2px
-
-        .comments
-            list-style-type: none
-
-        .comment
-            height: 14px
-            position: relative
-            top: -1px
-
-        .hide_posts
-            height: 12px
-            position: relative
-            top: -1px
-            right: 3px
-
+    .post-buttons
+        .button-group:last-child
+            opacity: 0
+            float: right
+            
+            .post-button
+                height: 15px
+                padding-left: 5px
+                
     .permalink
         color: #2ba6cb
         font-size: 0.85em
         margin: 22px 0 0 10px
-
+        
     &:hover
-        .buttons
+        .button-group:last-child
             opacity: 1
+            transition: opacity 0.5s
+            -webkit-transition: opacity 0.5s

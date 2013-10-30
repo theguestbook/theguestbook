@@ -32,9 +32,8 @@ angular.module('myApp.directives', [])
             $scope.content = "";
             $scope.newPost = function() {
                 postalService.newPost($scope.title, $scope.content, function(err) {
-                    if(err) console.log(err + ":(");
+                    if(err) console.log(err);
                     else {
-                        //why can I not invoke onPost()??
                         $scope.onPost();
                     }
                 });
