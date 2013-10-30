@@ -1,12 +1,20 @@
-<section class="post">
-    <div class="small-12 columns panel">
+ <div class="post small-12 columns">
         <div ng-transclude class="post_content"></div>
-        <div class="buttons">
-            <a><div class="hide-button"><img src="../img/hide.png" class="hide_posts">hide</div></a>
-            <a><div class="like-button tiny secondary"><img src="../img/bump.png" class="bump">bump</div></a>
-            <a><div class="comment-button tiny secondary"><img src="../img/comment.png" class="comment">comment</div></a>
+        <div class="post-buttons button-bar">
+            <ul class="button-group">
+                <li><a class="perma-link">permalink</a></li>
+            </ul>
+            <ul class="button-group">
+                <li>
+                    <a><img class="post-button" src="../img/hide.png">hide</a>
+                </li>
+                <li>
+                    <a><img class="post-button" src="../img/bump.png">bump</a>
+                </li>
+                <li>
+                    <a><img class="post-button" src="../img/comment.png">comment</a>
+                </li>
+            </ul>
         </div>
-        <div class="permalink"><a>direct link</a></div>
         <div class="comments"></div>
     </div>
-</section>

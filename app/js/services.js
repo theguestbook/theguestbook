@@ -9,7 +9,8 @@ angular.module('myApp.services', []).factory('postalService', ['$http', function
     var service = {};
 
     service.getPosts = function(amount, start, callback) {
-        $http.post("/getPosts", {amount: amount, start: start}).success(function(res) {
+        $http.post("/getPosts", {amount: amount, start: start})
+        .success(function(res) {
             if (res === undefined) {
                 console.log("No such posts exist on database.");
                 callback("No such posts exist on database"); //treat this as an error
