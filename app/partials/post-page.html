@@ -1,19 +1,18 @@
-<div ng-controller="PostCtrl">
-	<section class="side-bar panel hide-for-small">
-		<compose on-post="getPosts(1)"></compose>
-	</section>
-
-
-	<!--Create the main feed of posts via a directive-->
-	<section id="posts">
-		<post ng-repeat="post in posts">
-			<h4>{{post.title}}</h4>
-			<p>{{post.content}}</p>
-		</post>
-		<div class="row">
-			<div class="small-12 large-4 small-centered columns">
-				<div class="greedy button" ng-click="getPosts(20, posts.length, false)">Load More</div>
-			</div>
-		</div>
-	</section>
+<div ng-controller="PostCtrl" class="row">
+    <!--Create the main feed of posts via a directive-->
+    <section class="posts large-9 small-12 columns">
+        <post ng-repeat="post in posts">
+            <h4>{{post.title}}</h4>
+            <p>{{post.content}}</p>
+        </post>
+        <div class="row">
+            <div class="small-12 columns">
+                <div class="greedyButton" ng-click="getPosts(20, posts.length, false)">Load More
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="compose large-3 hide-for-small columns">
+        <compose on-post="getPosts(1)"></compse>
+    </section>
 </div>

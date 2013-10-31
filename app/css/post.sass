@@ -1,0 +1,26 @@
+.post
+    @include panel
+    margin: 0
+    
+    .post_content
+        margin: 0 0 0 0
+    
+    .post-buttons
+        .button-group:last-child
+            opacity: 0
+            float: right
+            
+            .post-button
+                height: 15px
+                padding-left: 5px
+                
+    .permalink
+        color: #2ba6cb
+        font-size: 0.85em
+        margin: 22px 0 0 10px
+        
+    &:hover
+        .button-group:last-child
+            opacity: 1
+            transition: opacity 0.5s
+            -webkit-transition: opacity 0.5s

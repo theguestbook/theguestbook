@@ -17,41 +17,38 @@
     </head>
 
     <body ng-app="myApp">
+
         <!--Navigation-->
-        <div class="fixed">
-            <nav class="top-bar">
-                <ul class="title-area">
-                    <li class="name">
-                        <h1>
-                            <a href="#">Datagram<span id="io">.io</span></a>
-                        </h1>
+        <nav class="fixed top-bar">
+            <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a href="#">theguestbook</a>
+                    </h1>
+                </li>
+                <li class="toggle-topbar menu-icon">
+                    <a href="#"><span></span></a>
+                </li>
+            </ul>
+            <section class="top-bar-section">
+                <ul class="left"></ul>
+                <ul class="right">
+                    <li>
+                        <a href="#">home</a>
                     </li>
-                    <li class="toggle-topbar menu-icon">
-                        <a href="#"><span></span></a>
+                    <li>
+                        <a href="#/compose">compose</a>
+                    </li>
+                    <li>
+                        <a href="#/about">about</a>
                     </li>
                 </ul>
-                <section class="top-bar-section">
-                    <ul class="left"></ul>
-                    <ul class="right">
-                        <li>
-                            <a href="#">home</a>
-                        </li>
-                        <li>
-                            <a href="#/compose">compose</a>
-                        </li>
-                        <li>
-                            <a href="about.html">about</a>
-                        </li>
-                    </ul>
-                </section>
-            </nav>
-        </div>
+            </section>
+        </nav>
 
-
-        <div class="container">            
-            <!--Pages are dynamically loaded into ng-view via Angular-->
-            <div ng-view></div>
-        </div>
+         
+        <!--Pages are dynamically loaded into ng-view via Angular-->
+        <div class="container" ng-view></div>
 
         <script src="lib/jquery.js"></script>
         <!--Angular Files-->
@@ -63,21 +60,21 @@
         <script src="js/services.js"></script>
         <!--Foundation Files-->
         <script src="lib/custom.modernizr.js"></script>
-        <script src="lib/foundation/foundation.js"></script>
-        <script src="lib/foundation/foundation.alerts.js"></script>
-        <script src="lib/foundation/foundation.clearing.js"></script>
-        <script src="lib/foundation/foundation.cookie.js"></script>
-        <script src="lib/foundation/foundation.dropdown.js"></script>
-        <script src="lib/foundation/foundation.forms.js"></script>
-        <script src="lib/foundation/foundation.joyride.js"></script>
-        <script src="lib/foundation/foundation.magellan.js"></script>
-        <script src="lib/foundation/foundation.orbit.js"></script>
-        <script src="lib/foundation/foundation.placeholder.js"></script>
-        <script src="lib/foundation/foundation.reveal.js"></script>
-        <script src="lib/foundation/foundation.section.js"></script>
-        <script src="lib/foundation/foundation.tooltips.js"></script>
-        <script src="lib/foundation/foundation.topbar.js"></script>
-        <script src="lib/foundation/foundation.interchange.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.alerts.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.clearing.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.cookie.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.dropdown.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.forms.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.joyride.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.magellan.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.orbit.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.placeholder.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.reveal.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.section.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.tooltips.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.topbar.js"></script>
+        <script src="lib/foundation/js/foundation/foundation.interchange.js"></script>
 
         <!--Initialization-->
         <script>
