@@ -15,21 +15,23 @@ angular.module('myApp.directives', [])
         templateUrl: "partials/components/post-partial.html",
         controller: function($scope, commentService) {
             $scope.comments = [];
+            $scope.commentContent = "";
+            $scope.commentsVisible = true;
 
             $scope.newComment = function() {
-                commentService.newComment("", $scope.postId, function(err) {
+                commentService.newComment($scope.commentContent, $scope.postId, function(err) {
                      if(err);
                 });
             };
 
-            var getComments = function() {
+            $scope.getComments = function() {
                 commentService.getComments($scope.postId, function(err, comments) {
                     if(err);
-                    else
+                    else {
                         $scope.comments = comments;
+                    }
                 });
             };
-            getComments();
         }
     };
  }])

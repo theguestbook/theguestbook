@@ -44,14 +44,30 @@ angular.module('myApp.services', []).factory('postalService', ['$http', function
 .factory('commentService', ['$http', function($http) {
     var service = {};
 
+    service.newComment = function(content, parent, callback) {
+        $http.post("/newComment", {content: content, parent: parent})
+        .success(function(comment) {
+            console.log("Success creating comment!");
+            callback(null);
+        })
+        .error(function(status, response) {
+            var err = "Error creating comment: " + status + " " + response;
+            console.log(err);
+            callback(err);
+        });
+    }
+
     service.getComments = function(parent, callback) {
+        console.log(parent);
         $http.post("/getComments", {parent: parent})
-        .success(function(status, comments){
+        .success(function(comments){
             console.log("Success getting commments!");
             callback(null, comments);
         })
         .error(function(status, response){
-            console.log("Error getting comments: " + status + " " + response);
+            var err = "Error getting comments: " + status + " " + response;
+            console.log(err);
+            callback(err);
         });
     };
 
