@@ -4751,13 +4751,11 @@ a.th {
   .post .post-buttons .button-group:last-child {
     opacity: 0;
     float: right; }
-    .post .post-buttons .button-group:last-child .post-button {
-      height: 15px;
-      padding-left: 5px; }
-  .post .permalink {
-    color: #2ba6cb;
-    font-size: 0.85em;
-    margin: 22px 0 0 10px; }
+  .post .post-buttons .post-button {
+    height: 15px;
+    padding-left: 5px; }
+  .post .comments {
+    padding: 30px 0 0 0; }
   .post:hover .button-group:last-child {
     opacity: 1;
     transition: opacity 0.5s;

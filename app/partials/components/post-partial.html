@@ -2,7 +2,7 @@
         <div ng-transclude class="post_content"></div>
         <div class="post-buttons button-bar">
             <ul class="button-group">
-                <li><a class="perma-link">permalink</a></li>
+                <li><a class="post-button">permalink</a></li>
             </ul>
             <ul class="button-group">
                 <li>
@@ -16,7 +16,7 @@
                 </li>
             </ul>
         </div>
-        <div class="columns comments">
+        <div class="comments">
             <div ng-repeat="comment in comments">{{comment.content}}</div>
             <div class="row">
                 <div class="small-8 columns">
