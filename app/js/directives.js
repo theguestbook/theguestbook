@@ -21,6 +21,10 @@ angular.module('myApp.directives', [])
             $scope.newComment = function() {
                 commentService.newComment($scope.commentContent, $scope.postId, function(err) {
                      if(err);
+                     else {
+                        //reload comments once submitted
+                        $scope.getComments();
+                     }
                 });
             };
 
