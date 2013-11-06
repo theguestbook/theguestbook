@@ -12,11 +12,11 @@
                     <a><img class="post-button" src="../img/bump.png">bump</a>
                 </li>
                 <li>
-                    <a ng-click="getComments()"><img class="post-button" src="../img/comment.png">comment</a>
+                    <a ng-click="getComments(true)"><img class="post-button" src="../img/comment.png">comment</a>
                 </li>
             </ul>
         </div>
-        <div class="comments">
+        <div class="comments" ng-show="commentsVisible">
             <div ng-repeat="comment in comments">{{comment.content}}</div>
             <div class="row">
                 <div class="small-8 columns">

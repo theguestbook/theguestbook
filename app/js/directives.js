@@ -16,7 +16,7 @@ angular.module('myApp.directives', [])
         controller: function($scope, commentService) {
             $scope.comments = [];
             $scope.commentContent = "";
-            $scope.commentsVisible = true;
+            $scope.commentsVisible = false;
 
             $scope.newComment = function() {
                 commentService.newComment($scope.commentContent, $scope.postId, function(err) {
@@ -28,13 +28,16 @@ angular.module('myApp.directives', [])
                 });
             };
 
-            $scope.getComments = function() {
-                commentService.getComments($scope.postId, function(err, comments) {
-                    if(err);
-                    else {
-                        $scope.comments = comments;
-                    }
-                });
+            $scope.getComments = function(toggle) {
+                if(toggle) $scope.commentsVisible = !$scope.commentsVisible;
+                if($scope.commentsVisible) {
+                    commentService.getComments($scope.postId, function(err, comments) {
+                        if(err);
+                        else {
+                            $scope.comments = comments;
+                        }
+                    });
+                }
             };
         }
     };
