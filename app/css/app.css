@@ -4734,6 +4734,7 @@ a.th {
   margin-bottom: 1.25em;
   padding: 1.25em;
   background: #f2f2f2;
+  padding: 15px 0 0 0;
   margin: 0; }
   .post > :first-child {
     margin-top: 0; }
@@ -4746,16 +4747,29 @@ a.th {
     margin-bottom: 0.625em; }
     .post h1.subheader, .post h2.subheader, .post h3.subheader, .post h4.subheader, .post h5.subheader, .post h6.subheader {
       line-height: 1.4; }
-  .post .post_content {
-    margin: 0 0 0 0; }
-  .post .post-buttons .button-group:last-child {
-    opacity: 0;
-    float: right; }
-  .post .post-buttons .post-button {
-    height: 15px;
-    padding-left: 5px; }
+  .post .post-buttons {
+    padding-bottom: 5px; }
+    .post .post-buttons .button-group:last-child {
+      opacity: 0;
+      float: right; }
+      .post .post-buttons .button-group:last-child .post-button {
+        padding-left: 5px; }
+    .post .post-buttons .post-button {
+      height: 15px; }
   .post .comments {
-    padding: 0 0 0 0; }
+    overflow: auto;
+    width: 100%;
+    padding: 10px 0 20px 0;
+    background-color: #d9d9d9;
+    border-image-slice: 60 0 0 0;
+    border-image-width: 10px 0px 0px 0px;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: round stretch;
+    border-image-source: url("../img/commentBorder.svg"); }
+    .post .comments .comment {
+      margin: 0;
+      border: none;
+      padding: 5px 0; }
     .post .comments .submit-button {
       width: 100%; }
   .post:hover .button-group:last-child {
