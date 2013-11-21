@@ -22,8 +22,11 @@ angular.module('myApp.directives', [])
                 commentService.newComment($scope.commentContent, $scope.postId, function(err) {
                      if(err);
                      else {
-                        //reload comments once submitted
+                        // Reload comments once submitted
                         $scope.getComments();
+                        
+                        // Clear the comment box
+                        $scope.commentContent = "";
                      }
                 });
             };
@@ -58,6 +61,8 @@ angular.module('myApp.directives', [])
                 postalService.newPost($scope.title, $scope.content, function(err) {
                     if(err) console.log(err);
                     else {
+                        $scope.title = ""; // Reset the title
+                        $scope.content = ""; // Clear the compose box
                         $scope.onPost();
                     }
                 });
