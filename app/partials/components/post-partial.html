@@ -21,13 +21,13 @@
         </ul>
     </div>
     <section class="comments" ng-show="commentsVisible">
-        <div class="small-11 small-offset-1 columns">
+        <div class="small-12 columns">
             <div ng-repeat="comment in comments">
                 <div class="comment">
                     {{comment.content}}
                 </div>
             </div>
-            <div class="row">
+            <div class="submition row">
                 <div class="small-8 columns">
                     <input class="comment-compose" placeholder="Write a comment..." type="text" ng-model="commentContent" />
                 </div>

@@ -4,9 +4,10 @@
     border-image-outset: 0px 0px 0px 0px
     border-image-repeat: round stretch
     border-image-source: url("../img/commentBorder.svg")
-    
+
 .post
     @include panel
+    border-bottom: none
     padding: 15px 0 0 0
     margin: 0
     .post-buttons
@@ -21,18 +22,21 @@
             height: 15px
     
     .comments
+        @include jagged-edge
         overflow: auto
         width: 100%
-        padding: 10px 0 20px 0
+        padding: 20px 0 10px 0
         background-color: darken($panel-bg, 10%)
-        @include jagged-edge
+        font-size: 0.9em
         .comment
             margin: 0
             border: none
             padding: 5px 0 
         
-        .submit-button
-            width: 100%
+        .submition
+            margin-top: 10px
+            .submit-button
+                width: 100%
 
     &:hover
         .button-group:last-child
