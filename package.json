@@ -1,6 +1,6 @@
 {
   "name": "theguestbook",
-  "description": "An anonymous posting service",
+  "description": "The anti-social network for everyone",
   "devDependencies": {
         "phantomjs" : "*",
         "karma" : "*",
