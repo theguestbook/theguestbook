@@ -1,0 +1,22 @@
+{
+  "name": "TheGuestbook",
+  "dependencies": {
+    "foundation": "~5.0.2"
+  },
+  "version": "0.7.0",
+  "homepage": "https://github.com/theguestbook/theguestbook",
+  "authors": [
+    "thebradbain <brad_bain@live.com>",
+    "mmolash <molash.michael@gmail.com>"
+  ],
+  "description": "The anti-social network for everyone",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
