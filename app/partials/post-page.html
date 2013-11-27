@@ -1,7 +1,7 @@
 <div ng-controller="PostCtrl" class="row">
     <!--Create the main feed of posts via a directive-->
     <section class="posts large-9 small-12 columns">
-        <post ng-repeat="post in posts">
+        <post post-id={{post._id}} ng-repeat="post in posts">
             <h4>{{post.title}}</h4>
             <p>{{post.content}}</p>
         </post>

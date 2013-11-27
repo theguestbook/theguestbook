@@ -4,18 +4,45 @@
 
 
 angular.module('myApp.directives', [])
-.directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-        elm.text(version);
-    };
- }])
-.directive('post', [function() {
+.directive('post', ['commentService', function() {
     return {
         restrict: 'E',
         transclude: true,
         replace: true,
-        scope: {},
+        scope: {
+            postId: "@",
+        },
         templateUrl: "partials/components/post-partial.html",
+        controller: function($scope, commentService) {
+            $scope.comments = [];
+            $scope.commentContent = "";
+            $scope.commentsVisible = false;
+
+            $scope.newComment = function() {
+                commentService.newComment($scope.commentContent, $scope.postId, function(err) {
+                     if(err);
+                     else {
+                        // Reload comments once submitted
+                        $scope.getComments();
+                        
+                        // Clear the comment box
+                        $scope.commentContent = "";
+                     }
+                });
+            };
+
+            $scope.getComments = function(toggle) {
+                if(toggle) $scope.commentsVisible = !$scope.commentsVisible;
+                if($scope.commentsVisible) {
+                    commentService.getComments($scope.postId, function(err, comments) {
+                        if(err);
+                        else {
+                            $scope.comments = comments;
+                        }
+                    });
+                }
+            };
+        }
     };
  }])
 .directive('compose', ['postalService', function(postalService) {
@@ -24,7 +51,7 @@ angular.module('myApp.directives', [])
         transclude: false,
         replace: true,
         scope: {
-            onPost: "&" //why will it not
+            onPost: "&"
         },
         templateUrl: "partials/components/compose-partial.html",
         controller: function($scope, postalService) {
@@ -34,6 +61,8 @@ angular.module('myApp.directives', [])
                 postalService.newPost($scope.title, $scope.content, function(err) {
                     if(err) console.log(err);
                     else {
+                        $scope.title = ""; // Reset the title
+                        $scope.content = ""; // Clear the compose box
                         $scope.onPost();
                     }
                 });
