@@ -22,6 +22,21 @@ angular.module('myApp.services', []).factory('postalService', ['$http', function
             callback(err); //there's an error.
         });
     };
+    
+    service.getPost = function(postId, callback) {
+        $http.post("/getPosts", {amount: 1, start: 0, find: {_id: postId}})
+        .success(function(posts) {
+            if(posts === undefined) {
+                callback("No such post exists on the database");
+            } else {
+                callback(null, posts[0]);
+            }
+        })
+        .error(function(err, status) {
+            console.log("Error getting post: " + status + " " + err);
+            callback(err);
+        });
+    }
 
     service.newPost = function(title, content, callback) {
         var newPostJSON = {};
@@ -32,7 +47,7 @@ angular.module('myApp.services', []).factory('postalService', ['$http', function
             console.log("Success! Post written");
             callback(null, post);
         }).error(function(err, status) {
-            console.log(status + ": " + err);
+            console.log("Error creating post: " + status + ": " + err);
             callback(err);
         });
     };
@@ -51,21 +66,19 @@ angular.module('myApp.services', []).factory('postalService', ['$http', function
             callback(null);
         })
         .error(function(status, response) {
-            var err = "Error creating comment: " + status + " " + response;
+            var err = "Error creating comment: " + status + ": " + response;
             console.log(err);
             callback(err);
         });
     }
 
     service.getComments = function(parent, callback) {
-        console.log(parent);
         $http.post("/getComments", {parent: parent})
         .success(function(comments){
-            console.log("Success getting commments!");
             callback(null, comments);
         })
         .error(function(status, response){
-            var err = "Error getting comments: " + status + " " + response;
+            var err = "Error getting comments: " + status + ": " + response;
             console.log(err);
             callback(err);
         });
