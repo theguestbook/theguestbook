@@ -15,21 +15,33 @@ angular.module('myApp.directives', [])
         templateUrl: "partials/components/post-partial.html",
         controller: function($scope, commentService) {
             $scope.comments = [];
+            $scope.commentContent = "";
+            $scope.commentsVisible = false;
 
             $scope.newComment = function() {
-                commentService.newComment("", $scope.postId, function(err) {
+                commentService.newComment($scope.commentContent, $scope.postId, function(err) {
                      if(err);
+                     else {
+                        // Reload comments once submitted
+                        $scope.getComments();
+                        
+                        // Clear the comment box
+                        $scope.commentContent = "";
+                     }
                 });
             };
 
-            var getComments = function() {
-                commentService.getComments($scope.postId, function(err, comments) {
-                    if(err);
-                    else
-                        $scope.comments = comments;
-                });
+            $scope.getComments = function(toggle) {
+                if(toggle) $scope.commentsVisible = !$scope.commentsVisible;
+                if($scope.commentsVisible) {
+                    commentService.getComments($scope.postId, function(err, comments) {
+                        if(err);
+                        else {
+                            $scope.comments = comments;
+                        }
+                    });
+                }
             };
-            getComments();
         }
     };
  }])
@@ -49,6 +61,8 @@ angular.module('myApp.directives', [])
                 postalService.newPost($scope.title, $scope.content, function(err) {
                     if(err) console.log(err);
                     else {
+                        $scope.title = ""; // Reset the title
+                        $scope.content = ""; // Clear the compose box
                         $scope.onPost();
                     }
                 });

@@ -2,7 +2,8 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).controller('PostCtrl', ['$scope', 'postalService',
+angular.module('myApp.controllers', [])
+.controller('PostCtrl', ['$scope', 'postalService',
     function($scope, postalService) {
         $scope.posts = [];
         $scope.getPosts = function(amount, start, before) {
@@ -10,7 +11,7 @@ angular.module('myApp.controllers', []).controller('PostCtrl', ['$scope', 'posta
             if(start === undefined) start = 0; //get the first 20 by default
             if(before === undefined) before = true; //append the posts to the start of the list by default
             postalService.getPosts(amount, start, function(err, posts) {
-                if (err); //do something;
+                if (err); //oh no;
                 else {
                     //append the posts from the server 
                     //to the beginning or the end 
@@ -24,5 +25,21 @@ angular.module('myApp.controllers', []).controller('PostCtrl', ['$scope', 'posta
             $scope.getPosts(20, 0);
         };
         init(); //get posts when this directive loads
+    }
+])
+.controller('PermapostCtrl', ['$scope', '$routeParams', 'postalService', 
+    function($scope, $routeParams, postalService) {
+        $scope.post = {};
+        $scope.getPost = function() {
+            postalService.getPost($routeParams.postId, function(err, post) {
+                if(err) return;
+                $scope.post = post;
+            });
+        };
+        
+        var init = function() {
+            $scope.getPost();
+        };
+        init();
     }
 ]);
