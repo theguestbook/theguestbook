@@ -69,4 +69,17 @@ angular.module('myApp.directives', [])
             };
         },
     };
-}]);
+}])
+.directive("ngScript", function () {
+    return {
+        restrict: 'E',
+        compile: function (elem, attr) {
+            var src = attr.src;
+            var code = elem.html();
+            if(src) $.getScript(src, function() {
+                if(code) eval(code);
+            });
+            else if(code) eval(code);
+        },
+    };
+});

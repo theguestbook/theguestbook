@@ -7789,11 +7789,7 @@ th.hide-for-touch {
   -webkit-transition: opacity 0.5s;
 }
 
-/* line 1, _compose.sass */
-.compose {
-  padding-left: 0;
-}
-/* line 4, _compose.sass */
+/* line 2, _compose.sass */
 .compose .composeBox {
   resize: none;
   min-height: 150px;
