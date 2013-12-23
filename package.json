@@ -1,6 +1,10 @@
 {
   "name": "theguestbook",
+  "version": "1.0.1",
   "description": "The anti-social network for everyone",
+  "scripts": {
+  	"start" : "node ./scripts/node-server/index.js"
+  },
   "devDependencies": {
         "phantomjs" : "*",
         "karma" : "*",
